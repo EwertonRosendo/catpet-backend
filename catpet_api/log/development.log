@@ -146,3 +146,197 @@ Processing by SessionsController#create as */*
 Completed 200 OK in 240ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+Started POST "/signup" for 186.208.11.22 at 2025-10-31 06:17:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "teste", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "teste", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste5@gmail.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('teste', 'teste5@gmail.com', '$2a$12$3/ww0KNSeqaDpcTL0IaqfuCeZ9apgW2AiadSz5gTAhHIJzAZCMygi', '2025-10-31 06:17:35.061292', '2025-10-31 06:17:35.061292') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 264ms (Views: 0.2ms | ActiveRecord: 7.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 186.208.11.22 at 2025-10-31 06:18:22 +0000
+Processing by SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'teste5@gmail.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 236ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 186.208.11.22 at 2025-10-31 06:26:17 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/rvm/gems/ruby-3.4.1/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/rvm/gems/ruby-3.4.1/gems/railties-8.0.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 153ms (Views: 45.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/icon.png" for 186.208.11.22 at 2025-10-31 06:26:18 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/icon.png"):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to CreatePets (20251031063219)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "pets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "species" varchar, "breed" varchar, "age" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0fa4bae6b1"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_pets_on_user_id" ON "pets" ("user_id") /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251031063219') RETURNING "version" /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Started POST "/signup" for 186.208.11.22 at 2025-10-31 06:42:45 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "name" => "ewerton", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"email" => "[FILTERED]", "name" => "ewerton", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('ewertonteste@gmail.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('ewerton', 'ewertonteste@gmail.com', '$2a$12$U1FcbAvUHU1We2nJCvG59..cn8KF3SJkisihpffKQjfnpkwxa0s7u', '2025-10-31 06:42:45.666356', '2025-10-31 06:42:45.666356') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 261ms (Views: 0.2ms | ActiveRecord: 6.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/:3000/users/7/pets" for 186.208.11.22 at 2025-10-31 06:43:17 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/:3000/users/7/pets"):
+  
+Started GET "/:3000/users/7/pets" for 186.208.11.22 at 2025-10-31 06:43:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/:3000/users/7/pets"):
+  
+Started GET "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:44:13 +0000
+Processing by PetsController#index as */*
+  Parameters: {"user_id" => "7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:6:in 'PetsController#index'
+Started GET "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:44:37 +0000
+Processing by PetsController#index as */*
+  Parameters: {"user_id" => "7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:6:in 'PetsController#index'
+Started POST "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:46:55 +0000
+Processing by PetsController#create as */*
+  Parameters: {"pet" => {"name" => "Buddy", "species" => "cachorro", "breed" => "Labrador", "age" => 5}, "user_id" => "7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:12:in 'PetsController#create'
+Started GET "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:47:36 +0000
+Processing by PetsController#index as */*
+  Parameters: {"user_id" => "7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 15.3ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:6:in 'PetsController#index'
+Started POST "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:47:47 +0000
+Processing by PetsController#create as */*
+  Parameters: {"pet" => {"name" => "Buddy", "species" => "cachorro", "breed" => "Labrador", "age" => 5}, "user_id" => "7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:12:in 'PetsController#create'
+Started POST "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:48:19 +0000
+Processing by PetsController#create as */*
+  Parameters: {"pet" => {"name" => "Buddy", "species" => "cachorro", "breed" => "Labrador", "age" => 5}, "user_id" => "7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:12:in 'PetsController#create'
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to AddUserToPets (20251031064919)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='CatpetApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='CatpetApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='CatpetApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='CatpetApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "species" varchar, "breed" varchar, "age" integer, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_apets_on_user_id" ON "apets" ("user_id") /*application='CatpetApi'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "apets" ("id","name","species","breed","age","user_id","created_at","updated_at")
+                     SELECT "id","name","species","breed","age","user_id","created_at","updated_at" FROM "pets" /*application='CatpetApi'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "pets" /*application='CatpetApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='CatpetApi'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='CatpetApi'*/[0m
+Started GET "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:52:13 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by PetsController#index as */*
+  Parameters: {"user_id" => "7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'pets' for an instance of User):
+  
+app/controllers/pets_controller.rb:6:in 'PetsController#index'
+Started POST "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:53:56 +0000
+Processing by PetsController#create as */*
+  Parameters: {"pet" => {"name" => "Buddy", "species" => "cachorro", "breed" => "Labrador", "age" => 5}, "user_id" => "7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:14:in 'PetsController#create'
+  [1m[36mPet Create (3.5ms)[0m  [1m[32mINSERT INTO "pets" ("name", "species", "breed", "age", "user_id", "created_at", "updated_at") VALUES ('Buddy', 'cachorro', 'Labrador', 5, 7, '2025-10-31 06:53:56.298746', '2025-10-31 06:53:56.298746') RETURNING "id" /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:14:in 'PetsController#create'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:14:in 'PetsController#create'
+Completed 201 Created in 111ms (Views: 0.4ms | ActiveRecord: 11.9ms (2 queries, 0 cached) | GC: 4.1ms)
+
+
+Started GET "/users/7/pets" for 186.208.11.22 at 2025-10-31 06:54:01 +0000
+Processing by PetsController#index as */*
+  Parameters: {"user_id" => "7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 7 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

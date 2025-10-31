@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
 
+  
+  has_many :pets, dependent: :destroy
+  
+
   private
 
   def downcase_email
