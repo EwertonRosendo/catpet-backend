@@ -25,3 +25,124 @@ Processing by RegistrationsController#create as */*
 Completed 201 Created in 311ms (Views: 0.2ms | ActiveRecord: 22.7ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+Started OPTIONS "/signup" for 187.17.137.73 at 2025-10-16 22:03:12 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/signup"):
+  
+Started OPTIONS "/signup" for 187.17.137.73 at 2025-10-16 22:04:33 +0000
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/signup"):
+  
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:06:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "teste", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "teste", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste@gmail.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('teste', 'teste@gmail.com', '$2a$12$ufOTMokmU.mrgkix3O.TwOPB7p14rOZC1udCPIdAFJl7zShS.qH9W', '2025-10-16 22:06:32.072527', '2025-10-16 22:06:32.072527') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 265ms (Views: 0.3ms | ActiveRecord: 5.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 187.17.137.73 at 2025-10-16 22:07:23 +0000
+Processing by SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'teste@gmail.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 235ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 187.17.137.73 at 2025-10-16 22:09:53 +0000
+Processing by SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'ewerton@teste.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:10:07 +0000
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "ewerton@teste.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "ewerton@teste.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('ewerton@teste.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('ewerton@teste.com', 'ewerton@teste.com', '$2a$12$A.rRuqHDm1AOqs/LWWmpWOBqbUNULMG1y/iW5S4482OBQZfasJOXu', '2025-10-16 22:10:07.976076', '2025-10-16 22:10:07.976076') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 233ms (Views: 0.1ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:10:59 +0000
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "ewerton2@teste.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "ewerton2@teste.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('ewerton2@teste.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('ewerton2@teste.com', 'ewerton2@teste.com', '$2a$12$CztSD5/QB7CKtOCIjinoDOuktR0kmDCL88A/hAp6k3WUblyCGeY/u', '2025-10-16 22:10:59.833383', '2025-10-16 22:10:59.833383') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 233ms (Views: 0.2ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:11:33 +0000
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "teste@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "teste@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('teste@gmail.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 422 Unprocessable Content in 359ms (Views: 0.1ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 18.2ms)
+
+
+Started POST "/register" for 187.17.137.73 at 2025-10-16 22:17:55 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started POST "/register" for 187.17.137.73 at 2025-10-16 22:18:00 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/register"):
+  
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:18:42 +0000
+Processing by RegistrationsController#create as */*
+  Parameters: {"name" => "signup@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "registration" => {"name" => "signup@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: user):
+  
+app/controllers/registrations_controller.rb:12:in 'RegistrationsController#user_params'
+app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Started POST "/signup" for 187.17.137.73 at 2025-10-16 22:19:38 +0000
+Processing by RegistrationsController#create as */*
+  Parameters: {"user" => {"name" => "signup@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "registration" => {"user" => {"name" => "signup@gmail.com", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('signup@gmail.com') LIMIT 1 /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ('signup@gmail.com', 'signup@gmail.com', '$2a$12$NfgIjVDEtTa8.ObP.iJcYOTG5g5Vscrww0pWDsbfCXrAm4uZ3Z.xa', '2025-10-16 22:19:39.016509', '2025-10-16 22:19:39.016509') RETURNING "id" /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:4:in 'RegistrationsController#create'
+Completed 201 Created in 237ms (Views: 0.2ms | ActiveRecord: 4.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 187.17.137.73 at 2025-10-16 22:20:08 +0000
+Processing by SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'signup@gmail.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 240ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
