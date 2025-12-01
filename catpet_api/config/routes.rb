@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :pets, only: [:index, :create]
   end
-
+  resources :users do
+    resources :alimentacoes
+    resources :registros
+    resources :consultas
+  end
   # exemplo de rota protegida
   get '/profile', to: 'users#profile'
 end
