@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
     {
       id: user.id,
       name: user.name,
-      email: user.email
+      email: user.email,
+      xp: user.xp
     }
   end
 end

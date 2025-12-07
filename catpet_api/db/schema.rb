@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_07_143401) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_07_151751) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -68,6 +68,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_07_143401) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "quests", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.integer "times", default: 1
+    t.integer "xp", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "registros", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -83,6 +92,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_07_143401) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "xp", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

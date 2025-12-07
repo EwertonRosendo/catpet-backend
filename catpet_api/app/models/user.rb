@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-
+  has_many :quests
   before_save :downcase_email
 
   VALID_EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\z/
@@ -11,6 +11,17 @@ class User < ApplicationRecord
 
   
   has_many :pets, dependent: :destroy
+
+  def complete_quest!(quest)
+    return false if quest.times <= 0
+
+    transaction do
+      update!(xp: xp + quest.xp)
+      quest.update!(times: quest.times - 1)
+    end
+
+    true
+  end
   
 
   private
