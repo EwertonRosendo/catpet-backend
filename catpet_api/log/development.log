@@ -625,3 +625,580 @@ Processing by PetsController#index as HTML
 Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 3.1ms)
 
 
+Started POST "/login" for 187.17.137.72 at 2025-12-01 10:59:54 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 260ms (Views: 0.2ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 11.4ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.72 at 2025-12-01 10:59:55 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.2ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 4.0ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.72 at 2025-12-01 10:59:55 +0000
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/consultas" for 187.17.137.72 at 2025-12-01 10:59:56 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.2ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 10:59:56 +0000
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "//users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:00:27 +0000
+Processing by AlimentacoesController#create as HTML
+  Parameters: {"body" => {"titulo" => "teste", "descricao" => "teste"}, "user_id" => "8", "alimentaco" => {"body" => {"titulo" => "teste", "descricao" => "teste"}}}
+[31mUnpermitted parameters: :titulo, :descricao. Context: { controller: AlimentacoesController, action: create, request: #<ActionDispatch::Request:0x00007c4e599b29f8>, params: {"body" => {"titulo" => "teste", "descricao" => "teste"}, "controller" => "alimentacoes", "action" => "create", "user_id" => "8", "alimentaco" => {"body" => {"titulo" => "teste", "descricao" => "teste"}}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mAlimentacao Create (0.1ms)[0m  [1m[32mINSERT INTO "alimentacaos" ("title", "description", "user_id", "created_at", "updated_at") VALUES (NULL, NULL, 8, '2025-12-01 11:00:27.093370', '2025-12-01 11:00:27.093370') RETURNING "id" /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+Completed 201 Created in 17ms (Views: 0.2ms | ActiveRecord: 3.8ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "//users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:01:02 +0000
+Processing by AlimentacoesController#create as HTML
+  Parameters: {"body" => {"titulo" => "sac", "descricao" => "asdas"}, "user_id" => "8", "alimentaco" => {"body" => {"titulo" => "sac", "descricao" => "asdas"}}}
+[31mUnpermitted parameters: :titulo, :descricao. Context: { controller: AlimentacoesController, action: create, request: #<ActionDispatch::Request:0x00007c4e597615f0>, params: {"body" => {"titulo" => "sac", "descricao" => "asdas"}, "controller" => "alimentacoes", "action" => "create", "user_id" => "8", "alimentaco" => {"body" => {"titulo" => "sac", "descricao" => "asdas"}}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mAlimentacao Create (0.2ms)[0m  [1m[32mINSERT INTO "alimentacaos" ("title", "description", "user_id", "created_at", "updated_at") VALUES (NULL, NULL, 8, '2025-12-01 11:01:02.550252', '2025-12-01 11:01:02.550252') RETURNING "id" /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+Completed 201 Created in 7ms (Views: 0.2ms | ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "//users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:01:37 +0000
+Processing by AlimentacoesController#create as HTML
+  Parameters: {"body" => {"title" => "safsd", "description" => "sffsd"}, "user_id" => "8", "alimentaco" => {"body" => {"title" => "safsd", "description" => "sffsd"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mAlimentacao Create (0.2ms)[0m  [1m[32mINSERT INTO "alimentacaos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ('safsd', 'sffsd', 8, '2025-12-01 11:01:37.743737', '2025-12-01 11:01:37.743737') RETURNING "id" /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+Completed 201 Created in 9ms (Views: 0.2ms | ActiveRecord: 1.8ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/login" for 187.17.137.72 at 2025-12-01 11:01:57 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 187.17.137.72 at 2025-12-01 11:01:58 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 234ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 3.9ms)
+
+
+Started GET "/users/8/consultas" for 187.17.137.72 at 2025-12-01 11:01:59 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.2ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.72 at 2025-12-01 11:02:00 +0000
+Started GET "/users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:02:00 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.72 at 2025-12-01 11:02:00 +0000
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mAlimentacao Delete All (2.3ms)[0m  [1m[31mDELETE FROM "alimentacaos" /*application='CatpetApi'*/[0m
+Started POST "/login" for 187.17.137.72 at 2025-12-01 11:03:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 251ms (Views: 0.3ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.72 at 2025-12-01 11:03:43 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:03:43 +0000
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Started GET "/users/8/pets" for 187.17.137.72 at 2025-12-01 11:03:43 +0000
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/consultas" for 187.17.137.72 at 2025-12-01 11:03:43 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "//users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:03:54 +0000
+Processing by AlimentacoesController#create as HTML
+  Parameters: {"body" => {"title" => "teste", "description" => "teste"}, "user_id" => "8", "alimentaco" => {"body" => {"title" => "teste", "description" => "teste"}}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mAlimentacao Create (0.2ms)[0m  [1m[32mINSERT INTO "alimentacaos" ("title", "description", "user_id", "created_at", "updated_at") VALUES ('teste', 'teste', 8, '2025-12-01 11:03:54.740451', '2025-12-01 11:03:54.740451') RETURNING "id" /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:15:in 'AlimentacoesController#create'
+Completed 201 Created in 59ms (Views: 0.9ms | ActiveRecord: 8.8ms (2 queries, 0 cached) | GC: 38.4ms)
+
+
+Started POST "/login" for 187.17.137.72 at 2025-12-01 11:04:02 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 230ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.72 at 2025-12-01 11:04:03 +0000
+Started GET "/users/8/consultas" for 187.17.137.72 at 2025-12-01 11:04:03 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+Processing by PetsController#index as HTML
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+  Parameters: {"user_id" => "8"}
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.72 at 2025-12-01 11:04:03 +0000
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.72 at 2025-12-01 11:04:04 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started POST "/login" for 187.17.137.75 at 2025-12-07 14:28:41 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 265ms (Views: 0.2ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.75 at 2025-12-07 14:28:44 +0000
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 26ms (Views: 8.9ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:28:44 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.75 at 2025-12-07 14:28:44 +0000
+Started GET "/users/8/consultas" for 187.17.137.75 at 2025-12-07 14:28:44 +0000
+Processing by AlimentacoesController#index as HTML
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+Completed 200 OK in 25ms (Views: 21.6ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 9.2ms)
+
+
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 25ms (Views: 19.8ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 11.2ms)
+
+
+Started POST "/login" for 187.17.137.75 at 2025-12-07 14:28:49 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 234ms (Views: 1.0ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.75 at 2025-12-07 14:28:49 +0000
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:28:49 +0000
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Processing by RegistrosController#index as HTML
+Completed 200 OK in 10ms (Views: 4.0ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:5:in 'RegistrosController#index'
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/consultas" for 187.17.137.75 at 2025-12-07 14:28:49 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.75 at 2025-12-07 14:28:49 +0000
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.1ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to CreateActiveStorageTables (20251207143401)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251207143401') RETURNING "version" /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Started POST "//users/8/registros" for 187.17.137.75 at 2025-12-07 14:37:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by RegistrosController#create as HTML
+  Parameters: {"title" => "sa", "description" => "sasa", "photos" => [#<ActionDispatch::Http::UploadedFile:0x000075ba9692c630 @tempfile=#<Tempfile:/tmp/RackMultipart20251207-2460-39b5tf.jpg>, @content_type="image/jpeg", @original_filename="images.jpg", @headers="Content-Disposition: form-data; name=\"photos[]\"; filename=\"images.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x000075ba9692c590 @tempfile=#<Tempfile:/tmp/RackMultipart20251207-2460-j3iwaq.jpg>, @content_type="image/jpeg", @original_filename="images.jpg", @headers="Content-Disposition: form-data; name=\"photos[]\"; filename=\"images.jpg\"\r\nContent-Type: image/jpeg\r\n">], "user_id" => "8"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: registro):
+  
+app/controllers/registros_controller.rb:50:in 'RegistrosController#registro_params'
+app/controllers/registros_controller.rb:21:in 'RegistrosController#create'
+Started POST "//users/8/registros" for 187.17.137.75 at 2025-12-07 14:39:38 +0000
+Processing by RegistrosController#create as HTML
+  Parameters: {"title" => "ad", "description" => "asdas", "photo" => ["undefined"], "photos" => [#<ActionDispatch::Http::UploadedFile:0x000075ba96780e80 @tempfile=#<Tempfile:/tmp/RackMultipart20251207-2460-46o4wg.jpg>, @content_type="image/jpeg", @original_filename="images.jpg", @headers="Content-Disposition: form-data; name=\"photos[]\"; filename=\"images.jpg\"\r\nContent-Type: image/jpeg\r\n">], "user_id" => "8"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty or invalid: registro):
+  
+app/controllers/registros_controller.rb:50:in 'RegistrosController#registro_params'
+app/controllers/registros_controller.rb:21:in 'RegistrosController#create'
+Started POST "//users/8/registros" for 187.17.137.75 at 2025-12-07 14:43:51 +0000
+Processing by RegistrosController#create as HTML
+  Parameters: {"title" => "asd", "description" => "sads", "user_id" => "8"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mRegistro Create (0.1ms)[0m  [1m[32mINSERT INTO "registros" ("title", "description", "user_id", "created_at", "updated_at") VALUES ('asd', 'sads', 8, '2025-12-07 14:43:51.512329', '2025-12-07 14:43:51.512329') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+Completed 201 Created in 47ms (Views: 0.2ms | ActiveRecord: 5.5ms (3 queries, 0 cached) | GC: 11.1ms)
+
+
+Started POST "//users/8/registros" for 187.17.137.75 at 2025-12-07 14:44:06 +0000
+Processing by RegistrosController#create as HTML
+  Parameters: {"title" => "asd", "description" => "asdas", "photo" => ["undefined"], "photos" => [#<ActionDispatch::Http::UploadedFile:0x000075ba9678bd30 @tempfile=#<Tempfile:/tmp/RackMultipart20251207-2460-tkq1fq.jpg>, @content_type="image/jpeg", @original_filename="1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg", @headers="Content-Disposition: form-data; name=\"photos[]\"; filename=\"1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg\"\r\nContent-Type: image/jpeg\r\n">], "user_id" => "8"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mRegistro Create (0.1ms)[0m  [1m[32mINSERT INTO "registros" ("title", "description", "user_id", "created_at", "updated_at") VALUES ('asd', 'asdas', 8, '2025-12-07 14:44:06.749077', '2025-12-07 14:44:06.749077') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('mwo2htg2cvbhukcvo9llee0l4nek', '1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg', 'image/jpeg', '{"identified":true}', 'local', 388611, 'mR+tD8AvTYY0sPqaB6j6bQ==', '2025-12-07 14:44:06.766262') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('photo', 'Registro', 2, 1, '2025-12-07 14:44:06.768867') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mRegistro Update (0.1ms)[0m  [1m[33mUPDATE "registros" SET "updated_at" = '2025-12-07 14:44:06.770876' WHERE "registros"."id" = 2 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: mwo2htg2cvbhukcvo9llee0l4nek (checksum: mR+tD8AvTYY0sPqaB6j6bQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 216f3b89-254e-4785-8a8e-09f268d6ef78) to Async(default) with arguments: #<GlobalID:0x000075ba9681e2e8 @uri=#<URI::GID gid://catpet-api/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+Completed 201 Created in 182ms (Views: 0.2ms | ActiveRecord: 2.7ms (7 queries, 0 cached) | GC: 4.3ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='CatpetApi'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78] Performing ActiveStorage::AnalyzeJob (Job ID: 216f3b89-254e-4785-8a8e-09f268d6ef78) from Async(default) enqueued at 2025-12-07T14:44:06.803010247Z with arguments: #<GlobalID:0x000075ba96832ef0 @uri=#<URI::GID gid://catpet-api/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mActiveStorage::Blob Update (1.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 1 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."id" = 2 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mRegistro Update (0.1ms)[0m  [1m[33mUPDATE "registros" SET "updated_at" = '2025-12-07 14:44:06.841594' WHERE "registros"."id" = 2 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [216f3b89-254e-4785-8a8e-09f268d6ef78] Performed ActiveStorage::AnalyzeJob (Job ID: 216f3b89-254e-4785-8a8e-09f268d6ef78) from Async(default) in 35.29ms
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:47:59 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.2ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:8:in 'Enumerable#map'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.4ms (4 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/favicon.ico" for 187.17.137.75 at 2025-12-07 14:48:10 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c7e3dc9152dbde61ed0fcdab37350956d0e00e2a/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg" for 187.17.137.75 at 2025-12-07 14:48:11 +0000
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c7e3dc9152dbde61ed0fcdab37350956d0e00e2a", "filename" => "1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='CatpetApi',controller='redirect'*/[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: mwo2htg2cvbhukcvo9llee0l4nek (https://fluffy-computing-machine-94rjx6q64942pvr6-3000.app.github.dev/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjExLjc2M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--78ae8e4ae6e8883a5c16cc5ecac5c2444740f5dc/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg)[0m
+Redirected to https://fluffy-computing-machine-94rjx6q64942pvr6-3000.app.github.dev/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjExLjc2M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--78ae8e4ae6e8883a5c16cc5ecac5c2444740f5dc/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg
+Completed 302 Found in 96ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjExLjc2M1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--78ae8e4ae6e8883a5c16cc5ecac5c2444740f5dc/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg" for 187.17.137.75 at 2025-12-07 14:48:13 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 168.194.64.134 at 2025-12-07 14:48:25 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c7e3dc9152dbde61ed0fcdab37350956d0e00e2a/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg" for 168.194.64.134 at 2025-12-07 14:48:37 +0000
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--c7e3dc9152dbde61ed0fcdab37350956d0e00e2a", "filename" => "1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='CatpetApi',controller='redirect'*/[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: mwo2htg2cvbhukcvo9llee0l4nek (https://fluffy-computing-machine-94rjx6q64942pvr6-3000.app.github.dev/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjM3LjgwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--744555ea79d331c63cc76495174c42f4eaa3dfc4/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg)[0m
+Redirected to https://fluffy-computing-machine-94rjx6q64942pvr6-3000.app.github.dev/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjM3LjgwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--744555ea79d331c63cc76495174c42f4eaa3dfc4/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJtd28yaHRnMmN2Ymh1a2N2bzlsbGVlMGw0bmVrIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiMTQzMjg1NS13aG8taXMtY2hyaXMtYnVtc3RlYWQtYW5kLWlzLWhlLW5hdHVyYWwtdGhlLXVzLXN1bi5qcGdcIjsgZmlsZW5hbWUqPVVURi04JycxNDMyODU1LXdoby1pcy1jaHJpcy1idW1zdGVhZC1hbmQtaXMtaGUtbmF0dXJhbC10aGUtdXMtc3VuLmpwZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI1LTEyLTA3VDE0OjUzOjM3LjgwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--744555ea79d331c63cc76495174c42f4eaa3dfc4/1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg" for 168.194.64.134 at 2025-12-07 14:48:38 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mRegistro Delete All (0.2ms)[0m  [1m[31mDELETE FROM "registros" /*application='CatpetApi'*/[0m
+Started POST "//users/8/registros" for 187.17.137.75 at 2025-12-07 14:49:29 +0000
+Processing by RegistrosController#create as HTML
+  Parameters: {"title" => "cbum", "description" => "the goat", "photo" => ["undefined"], "photos" => [#<ActionDispatch::Http::UploadedFile:0x000075ba988bb460 @tempfile=#<Tempfile:/tmp/RackMultipart20251207-2460-it465l.jpg>, @content_type="image/jpeg", @original_filename="1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg", @headers="Content-Disposition: form-data; name=\"photos[]\"; filename=\"1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg\"\r\nContent-Type: image/jpeg\r\n">], "user_id" => "8"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mRegistro Create (0.1ms)[0m  [1m[32mINSERT INTO "registros" ("title", "description", "user_id", "created_at", "updated_at") VALUES ('cbum', 'the goat', 8, '2025-12-07 14:49:30.009682', '2025-12-07 14:49:30.009682') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('apc7lps9nxyxxy7p5anqq2a64t9w', '1432855-who-is-chris-bumstead-and-is-he-natural-the-us-sun.jpg', 'image/jpeg', '{"identified":true}', 'local', 388611, 'mR+tD8AvTYY0sPqaB6j6bQ==', '2025-12-07 14:49:30.018756') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('photo', 'Registro', 3, 2, '2025-12-07 14:49:30.021255') RETURNING "id" /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mRegistro Update (0.1ms)[0m  [1m[33mUPDATE "registros" SET "updated_at" = '2025-12-07 14:49:30.023407' WHERE "registros"."id" = 3 /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: apc7lps9nxyxxy7p5anqq2a64t9w (checksum: mR+tD8AvTYY0sPqaB6j6bQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6) to Async(default) with arguments: #<GlobalID:0x000075ba98d39578 @uri=#<URI::GID gid://catpet-api/ActiveStorage::Blob/2>>
+[ActiveJob] ↳ app/controllers/registros_controller.rb:28:in 'RegistrosController#create'
+Completed 201 Created in 32ms (Views: 0.2ms | ActiveRecord: 3.5ms (7 queries, 0 cached) | GC: 4.9ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*application='CatpetApi'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6] Performing ActiveStorage::AnalyzeJob (Job ID: 04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6) from Async(default) enqueued at 2025-12-07T14:49:30.034409421Z with arguments: #<GlobalID:0x000075ba992ccad0 @uri=#<URI::GID gid://catpet-api/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mActiveStorage::Blob Update (3.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 2 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 2 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."id" = 3 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mRegistro Update (0.0ms)[0m  [1m[33mUPDATE "registros" SET "updated_at" = '2025-12-07 14:49:30.064404' WHERE "registros"."id" = 3 /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6] Performed ActiveStorage::AnalyzeJob (Job ID: 04021f2f-97c9-4f6e-bfa8-ab8b89aa6ce6) from Async(default) in 26.54ms
+Started POST "/login" for 187.17.137.75 at 2025-12-07 14:49:42 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'maria@email.com' LIMIT 1 /*action='create',application='CatpetApi',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:4:in 'SessionsController#create'
+Completed 200 OK in 231ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/alimentacoes" for 187.17.137.75 at 2025-12-07 14:49:43 +0000
+Processing by AlimentacoesController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mAlimentacao Load (0.2ms)[0m  [1m[34mSELECT "alimentacaos".* FROM "alimentacaos" WHERE "alimentacaos"."user_id" = 8 /*action='index',application='CatpetApi',controller='alimentacoes'*/[0m
+  ↳ app/controllers/alimentacoes_controller.rb:5:in 'AlimentacoesController#index'
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:49:44 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.2ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:8:in 'Enumerable#map'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/users/8/pets" for 187.17.137.75 at 2025-12-07 14:49:44 +0000
+Processing by PetsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:24:in 'PetsController#set_user'
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."user_id" = 8 /*action='index',application='CatpetApi',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#index'
+Completed 200 OK in 8ms (Views: 3.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/consultas" for 187.17.137.75 at 2025-12-07 14:49:44 +0000
+Processing by ConsultasController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mConsulta Load (0.2ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta" WHERE "consulta"."user_id" = 8 /*action='index',application='CatpetApi',controller='consultas'*/[0m
+  ↳ app/controllers/consultas_controller.rb:5:in 'ConsultasController#index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:54:43 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:8:in 'Enumerable#map'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/8/registros" for 187.17.137.75 at 2025-12-07 14:54:45 +0000
+Processing by RegistrosController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mRegistro Load (0.1ms)[0m  [1m[34mSELECT "registros".* FROM "registros" WHERE "registros"."user_id" = 8 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:8:in 'Enumerable#map'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Registro' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*action='index',application='CatpetApi',controller='registros'*/[0m
+  ↳ app/controllers/registros_controller.rb:10:in 'block in RegistrosController#index'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
