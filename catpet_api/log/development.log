@@ -2048,3 +2048,59 @@ Processing by QuestsController#index as HTML
 Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to CreateDoctors (20251207160856)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "doctors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "specialty" varchar NOT NULL, "rating" integer DEFAULT 5, "phone" varchar, "email" varchar, "price" decimal(10,2), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251207160856') RETURNING "version" /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Started POST "/doctors" for 187.17.137.75 at 2025-12-07 16:10:55 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by DoctorsController#create as HTML
+  Parameters: {"doctor" => {"name" => "Dr. João Silva", "specialty" => "Cardiologia", "phone" => "11999999999", "email" => "[FILTERED]", "price" => 300.0}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:19:in 'DoctorsController#create'
+  [1m[36mDoctor Create (1.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "specialty", "rating", "phone", "email", "price", "created_at", "updated_at") VALUES ('Dr. João Silva', 'Cardiologia', 5, '11999999999', 'dr.joao@example.com', 300.0, '2025-12-07 16:10:55.940881', '2025-12-07 16:10:55.940881') RETURNING "id" /*action='create',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:19:in 'DoctorsController#create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:19:in 'DoctorsController#create'
+Completed 201 Created in 13ms (Views: 0.2ms | ActiveRecord: 4.6ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/doctors" for 187.17.137.75 at 2025-12-07 16:13:56 +0000
+Processing by DoctorsController#index as HTML
+  [1m[36mDoctor Load (0.2ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" /*action='index',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:7:in 'DoctorsController#index'
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/doctors" for 187.17.137.75 at 2025-12-07 16:17:45 +0000
+Processing by DoctorsController#index as HTML
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" /*action='index',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:7:in 'DoctorsController#index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/doctors" for 187.17.137.75 at 2025-12-07 16:17:47 +0000
+Processing by DoctorsController#index as HTML
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" /*action='index',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:7:in 'DoctorsController#index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/doctors" for 187.17.137.75 at 2025-12-07 16:17:56 +0000
+Processing by DoctorsController#index as HTML
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" /*action='index',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:7:in 'DoctorsController#index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/doctors" for 187.17.137.75 at 2025-12-07 16:17:57 +0000
+Processing by DoctorsController#index as HTML
+  [1m[36mDoctor Load (0.1ms)[0m  [1m[34mSELECT "doctors".* FROM "doctors" /*action='index',application='CatpetApi',controller='doctors'*/[0m
+  ↳ app/controllers/doctors_controller.rb:7:in 'DoctorsController#index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_07_151751) do
+ActiveRecord::Schema[8.0].define(version: 2025_12_07_160856) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,6 +55,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_07_151751) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_consulta_on_user_id"
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "specialty", null: false
+    t.integer "rating", default: 5
+    t.string "phone"
+    t.string "email"
+    t.decimal "price", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pets", force: :cascade do |t|

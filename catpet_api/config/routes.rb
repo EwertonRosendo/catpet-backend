@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :consultas
   end
   resources :quests
+  resources :doctors
+
   # exemplo de rota protegida
   get '/profile', to: 'users#profile'
 end
