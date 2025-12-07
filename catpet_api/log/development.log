@@ -2104,3 +2104,277 @@ Processing by DoctorsController#index as HTML
 Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT 11 /*application='CatpetApi'*/[0m
+  [1m[36mQuest Load (0.2ms)[0m  [1m[34mSELECT "quests".* FROM "quests" /* loading for pp */ LIMIT 11 /*application='CatpetApi'*/[0m
+Started POST "/user_task_completeds" for 187.17.137.75 at 2025-12-07 16:27:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20251207162203_create_user_task_completeds.rb
+
+
+):
+  
+activerecord (8.0.3) lib/active_record/migration.rb:742:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.3) lib/active_record/migration.rb:659:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.3) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activesupport (8.0.3) lib/active_support/file_update_checker.rb:95:in 'ActiveSupport::FileUpdateChecker#execute_if_updated'
+activerecord (8.0.3) lib/active_record/migration.rb:666:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.3) lib/active_record/migration.rb:656:in 'Thread::Mutex#synchronize'
+activerecord (8.0.3) lib/active_record/migration.rb:656:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.3) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.3) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.4) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.4) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.4) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.4) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.4) lib/puma/server.rb:506:in 'Puma::Server#process_client'
+puma (7.0.4) lib/puma/server.rb:265:in 'block in Puma::Server#run'
+puma (7.0.4) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to CreateUserTaskCompleteds (20251207162203)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "user_task_completeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "quest_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0ef437b10d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_c036a1d240"
+FOREIGN KEY ("quest_id")
+  REFERENCES "quests" ("id")
+) /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_user_task_completeds_on_user_id" ON "user_task_completeds" ("user_id") /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_user_task_completeds_on_quest_id" ON "user_task_completeds" ("quest_id") /*application='CatpetApi'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_user_task_completeds_on_user_id_and_quest_id" ON "user_task_completeds" ("user_id", "quest_id") /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20251207162203') RETURNING "version" /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Started POST "/user_task_completeds" for 187.17.137.75 at 2025-12-07 16:28:17 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by UserTaskCompletedsController#create as HTML
+  Parameters: {"quest_id" => 1, "user_id" => 8, "user_task_completed" => {"user_id" => 8, "quest_id" => 1}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.5ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'authorize_request' for an instance of UserTaskCompletedsController):
+  
+railties (8.0.3) lib/rails/engine/lazy_route_set.rb:96:in 'method_missing'
+activesupport (8.0.3) lib/active_support/callbacks.rb:361:in 'block in ActiveSupport::Callbacks::CallTemplate::MethodCall#make_lambda'
+activesupport (8.0.3) lib/active_support/callbacks.rb:178:in 'block in ActiveSupport::Callbacks::Filters::Before#call'
+actionpack (8.0.3) lib/abstract_controller/callbacks.rb:34:in 'block (2 levels) in <module:Callbacks>'
+activesupport (8.0.3) lib/active_support/callbacks.rb:179:in 'ActiveSupport::Callbacks::Filters::Before#call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:559:in 'block in ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.0.3) lib/active_support/callbacks.rb:559:in 'Array#each'
+activesupport (8.0.3) lib/active_support/callbacks.rb:559:in 'ActiveSupport::Callbacks::CallbackSequence#invoke_before'
+activesupport (8.0.3) lib/active_support/callbacks.rb:108:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.3) lib/abstract_controller/callbacks.rb:260:in 'AbstractController::Callbacks#process_action'
+actionpack (8.0.3) lib/action_controller/metal/rescue.rb:27:in 'ActionController::Rescue#process_action'
+actionpack (8.0.3) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.0.3) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.0.3) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.0.3) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.0.3) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.0.3) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.0.3) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.0.3) lib/abstract_controller/base.rb:152:in 'AbstractController::Base#process'
+actionpack (8.0.3) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.0.3) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:67:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:53:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:133:in 'block in ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in 'Array#each'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:126:in 'ActionDispatch::Journey::Router#find_routes'
+actionpack (8.0.3) lib/action_dispatch/journey/router.rb:34:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.0.3) lib/action_dispatch/routing/route_set.rb:908:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.0.3) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.3) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.3) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.3) lib/rack/head.rb:15:in 'Rack::Head#call'
+activerecord (8.0.3) lib/active_record/migration.rb:670:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.3) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.3) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.4) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.4) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.4) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.4) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.4) lib/puma/server.rb:506:in 'Puma::Server#process_client'
+puma (7.0.4) lib/puma/server.rb:265:in 'block in Puma::Server#run'
+puma (7.0.4) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/user_task_completeds" for 187.17.137.75 at 2025-12-07 16:29:17 +0000
+Processing by UserTaskCompletedsController#create as HTML
+  Parameters: {"quest_id" => 1, "user_id" => 8, "user_task_completed" => {"user_id" => 8, "quest_id" => 1}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.7ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+NoMethodError (undefined method 'id' for nil):
+  
+app/controllers/user_task_completeds_controller.rb:13:in 'UserTaskCompletedsController#create'
+Started POST "/user_task_completeds" for 187.17.137.75 at 2025-12-07 16:29:46 +0000
+Processing by UserTaskCompletedsController#create as HTML
+  Parameters: {"quest_id" => 1, "user_id" => 8, "user_task_completed" => {"user_id" => 8, "quest_id" => 1}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+  [1m[36mQuest Load (0.1ms)[0m  [1m[34mSELECT "quests".* FROM "quests" WHERE "quests"."id" = 1 LIMIT 1 /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+  [1m[36mUserTaskCompleted Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "user_task_completeds" WHERE "user_task_completeds"."user_id" = 8 AND "user_task_completeds"."quest_id" = 1 LIMIT 1 /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+  [1m[36mUserTaskCompleted Create (0.1ms)[0m  [1m[32mINSERT INTO "user_task_completeds" ("user_id", "quest_id", "created_at", "updated_at") VALUES (8, 1, '2025-12-07 16:29:46.802116', '2025-12-07 16:29:46.802116') RETURNING "id" /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:17:in 'UserTaskCompletedsController#create'
+Completed 201 Created in 23ms (Views: 0.2ms | ActiveRecord: 3.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/user_task_completeds?user_id=8" for 187.17.137.75 at 2025-12-07 16:30:52 +0000
+Processing by UserTaskCompletedsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUserTaskCompleted Load (0.1ms)[0m  [1m[34mSELECT "user_task_completeds".* FROM "user_task_completeds" WHERE "user_task_completeds"."user_id" = 8 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:7:in 'UserTaskCompletedsController#index'
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/user_task_completeds?user_id=8" for 187.17.137.75 at 2025-12-07 16:32:10 +0000
+Processing by UserTaskCompletedsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUserTaskCompleted Load (0.1ms)[0m  [1m[34mSELECT "user_task_completeds".* FROM "user_task_completeds" WHERE "user_task_completeds"."user_id" = 8 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'task' was not found on UserTaskCompleted; perhaps you misspelled it?):
+  
+app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+app/controllers/user_task_completeds_controller.rb:10:in 'UserTaskCompletedsController#index'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to RenameTaskIdToQuestIdInUserTaskCompleted (20251207163358)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='CatpetApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Migrating to RenameTaskIdToQuestIdInUserTaskCompleted (20251207163358)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='CatpetApi'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='CatpetApi'*/[0m
+Started GET "/user_task_completeds?user_id=8" for 187.17.137.75 at 2025-12-07 16:37:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20251207163358_rename_task_id_to_quest_id_in_user_task_completed.rb
+
+
+):
+  
+activerecord (8.0.3) lib/active_record/migration.rb:742:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.3) lib/active_record/migration.rb:659:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.3) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activesupport (8.0.3) lib/active_support/file_update_checker.rb:95:in 'ActiveSupport::FileUpdateChecker#execute_if_updated'
+activerecord (8.0.3) lib/active_record/migration.rb:666:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.3) lib/active_record/migration.rb:656:in 'Thread::Mutex#synchronize'
+activerecord (8.0.3) lib/active_record/migration.rb:656:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.3) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.3) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.3) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.3) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.0.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+rack-cors (3.0.0) lib/rack/cors.rb:102:in 'Rack::Cors#call'
+railties (8.0.3) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (7.0.4) lib/puma/configuration.rb:299:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (7.0.4) lib/puma/request.rb:101:in 'block in Puma::Request#handle_request'
+puma (7.0.4) lib/puma/thread_pool.rb:346:in 'Puma::ThreadPool#with_force_shutdown'
+puma (7.0.4) lib/puma/request.rb:100:in 'Puma::Request#handle_request'
+puma (7.0.4) lib/puma/server.rb:506:in 'Puma::Server#process_client'
+puma (7.0.4) lib/puma/server.rb:265:in 'block in Puma::Server#run'
+puma (7.0.4) lib/puma/thread_pool.rb:173:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/user_task_completeds?user_id=8" for 187.17.137.75 at 2025-12-07 16:37:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='CatpetApi'*/[0m
+Processing by UserTaskCompletedsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUserTaskCompleted Load (0.1ms)[0m  [1m[34mSELECT "user_task_completeds".* FROM "user_task_completeds" WHERE "user_task_completeds"."user_id" = 8 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+  [1m[36mQuest Load (0.1ms)[0m  [1m[34mSELECT "quests".* FROM "quests" WHERE "quests"."id" = 1 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/user_task_completeds?user_id=8" for 187.17.137.75 at 2025-12-07 16:37:49 +0000
+Processing by UserTaskCompletedsController#index as HTML
+  Parameters: {"user_id" => "8"}
+  [1m[36mUserTaskCompleted Load (0.1ms)[0m  [1m[34mSELECT "user_task_completeds".* FROM "user_task_completeds" WHERE "user_task_completeds"."user_id" = 8 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+  [1m[36mQuest Load (0.1ms)[0m  [1m[34mSELECT "quests".* FROM "quests" WHERE "quests"."id" = 1 /*action='index',application='CatpetApi',controller='user_task_completeds'*/[0m
+  ↳ app/controllers/user_task_completeds_controller.rb:10:in 'Enumerable#map'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+

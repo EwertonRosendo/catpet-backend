@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :quests
   resources :doctors
-
+  resources :user_task_completeds, only: [:index, :create]
   # exemplo de rota protegida
   get '/profile', to: 'users#profile'
 end

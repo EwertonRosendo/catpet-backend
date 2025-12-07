@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :quests
   before_save :downcase_email
 
+  has_many :user_task_completeds
+  has_many :completed_quests, through: :user_task_completeds, source: :quest
   VALID_EMAIL_REGEX = /\A[^@\s]+@[^@\s]+\z/
 
   validates :name, presence: true, length: { maximum: 100 }
